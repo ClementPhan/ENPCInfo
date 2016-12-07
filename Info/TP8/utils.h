@@ -23,7 +23,7 @@ struct point
         q.y=y-p.y;
         return q;
     }
-    point operator*(double lambda) const{
+    point operator*(int lambda) const{
         point q;
         q.x=x*lambda;
         q.y=y*lambda;

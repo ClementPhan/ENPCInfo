@@ -7,6 +7,7 @@
 
 #include "utils.h"
 #include "serpent.h"
+using namespace std;
 
 //======================================
 // Serpent
@@ -28,6 +29,14 @@ int main()
 	const int h=100;
 	const int z=4;
 	openWindow(w*z,h*z);
+    point x={200,200};
+    Serpent plop(x, 0, 20, 1, RED);
+    plop.affichage();
+    for(int i=0; i<500;i++){
+        plop.deplacement(false);
+        plop.affichage();
+        milliSleep(50);
+    }
 
 
 	endGraphics();

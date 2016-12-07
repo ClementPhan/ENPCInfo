@@ -35,20 +35,21 @@ void Serpent::allonge(){
 }
 void Serpent::affichage(){
     for(int i=0;i<_longueur;i++){
-        ;
+        fillRect(_corps[i].x-1,_corps[i].y-1,3,3,_col);
     }
 }
 
-void Serpent::inputDir(int){
-
+void Serpent::inputDir(int i){
+    _direction = i;
 }
 
 void Serpent::deplacement(bool allonger){
     if(allonger){
         allonge();
     }
-    for(int i=_longueur-1;i>0;i--){
+    for(int i=_longueur-1;i>=0;i--){
         _corps[i]=_corps[i-1];
     }
     _corps[0]=_corps[1]+dir[_direction]*_vitesse;
 }
+
