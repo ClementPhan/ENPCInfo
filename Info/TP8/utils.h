@@ -33,6 +33,9 @@ struct point
         return ((x==p.x)&&(y==p.y));
     }
 
+    int normeInf(){
+        return std::max(abs(x),abs(y));
+    }
 };
 
 const int droite = 0;
