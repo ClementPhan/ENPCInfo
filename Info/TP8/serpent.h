@@ -13,19 +13,16 @@ class Serpent{
         int _direction;
         int _vitesse;
         Color _col;
-
         void allonge();
-
-        bool collision();// a regarder apres le deplacement
-        bool collision(const Serpent &S);// a regarder apres le deplacement de tous les autres objets
-        void affichage(); // apres tous les deplacements et les collisions
 
 
     public:
         void inputDir(int);
         void deplacement(bool); // bool pour savoir si on allonge
-        void deplacement(Serpent,bool);
-
+        bool collision();// a regarder apres le deplacement
+        bool collision(const Serpent &S);// a regarder apres le deplacement de tous les autres objets
+        void affichage();// apres tous les deplacements et les collisions
+        void effacage();
         int GetLongueur() const{
             return _longueur;
         }
@@ -36,9 +33,10 @@ class Serpent{
         Serpent(){}
         Serpent(point tete, int direction, int longueur, int vitesse=3, const Color &col=BLACK){
             _longueur = longueur;
+            _direction = direction;
             _corps = new point[longueur];
             for(int i=0;i<longueur;i++){
-                _corps[i]=tete+dir[direction]*double(i);
+                _corps[i]=tete-dir[direction]*double(i);
             }
             _col = col;
             _vitesse = vitesse;
@@ -50,4 +48,5 @@ class Serpent{
 
 };
 
+void GetDir(int joueurs[2]);
 #endif // SERPENT_H
